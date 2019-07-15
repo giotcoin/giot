@@ -1,0 +1,29 @@
+# IBC (inter-blockchain communication) message sequence chart
+
+msc {
+
+   # The entities
+   Zone1, Hub, Zone2;
+
+   |||;
+
+   Zone1 -> Hub [ label = "IBCBlockCommitTx\nchainID=Zone1,height=100"];
+   Zone1 -> Hub [ label = "IBCPacketTx\nfrom=Zone1,status=AckPending"];
+
+   Hub -> Zone2 [ label = "IBCBlockCommitTx\nchainID=Hub,height=300"];
+   Hub -> Zone2 [ label = "IBCPacketTx\nfrom=Hub,status=AckPending"];
+
+   |||;
+
+   Zone2 -x Hub [ label = "IBCBlockCommitTx\nchainID=Zone2,height=400", textcolor="gray", linecolor="gray"];
+   Zone2 -x Hub [ label = "IBCPacketTx\nfrom=Zone2,status=AckSent", textcolor="gray", linecolor="gray"];
+
+   |||;
+
+   --- [ label = "Timeout"];
+
+   |||;
+
+   Hub -> Zone1 [ label = "IBCBlockCommitTx\nchainID=Hub,height=351"];
+   Hub -> Zone1 [ label = "IBCPacketTx\nfrom=Hub,status=Timeout"];
+}

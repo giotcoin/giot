@@ -1,0 +1,16 @@
+# IBC (inter-blockchain communication) message sequence chart
+
+msc {
+
+   # The entities
+   Zone1, Hub, Zone2;
+
+   |||;
+
+   Zone1 -> Hub [ label = "IBCBlockCommitTx\nchainID=Zone1,height=100"];
+   Zone1 -> Hub [ label = "IBCPacketTx\nfrom=Zone1,status=NoAck"];
+
+   Hub -> Zone2 [ label = "IBCBlockCommitTx\nchainID=Hub,height=300"];
+   Hub -> Zone2 [ label = "IBCPacketTx\nfrom=Hub,status=NoAck"];
+
+}
