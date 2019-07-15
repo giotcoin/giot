@@ -343,8 +343,6 @@ then communicated from one zone to another by posting Merkle-proofs as evidence
 that the information was sent and received.  This mechanism is called
 inter-blockchain communication, or IBC for short.
 
-![Figure of hub and zones
-acknowledgement](https://raw.githubusercontent.com/gnuclear/give-whitepaper/master/images/hub_and_zones.png)
 
 Any of the zones can themselves be hubs to form an acyclic graph, but
 for the sake of clarity we will only describe the simple configuration where
@@ -412,8 +410,6 @@ native fee market-mechanism of the receiving chain to determine which packets
 get committed (i.e. acknowledged), while allowing for complete freedom on the
 sending chain as to how many outbound packets are allowed.
 
-![Figure of Zone1, Zone2, and Hub IBC without
-acknowledgement](https://raw.githubusercontent.com/gnuclear/give-whitepaper/master/msc/ibc_without_ack.png)
 
 <CAPTION on a figure> In the example above, in order to update the block-hash of
 "Zone1" on "Hub" (or of "Hub" on "Zone2"), an `IBCBlockCommitTx`
