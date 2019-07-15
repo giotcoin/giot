@@ -10,6 +10,7 @@ exponential = True  # exponential
 commission = 0.10   # 5% commission
 numBlocksPerYear = 1000
 
+
 for year in range(0,50):
   rewardsYear = 0.0
   for i in range(0,numBlocksPerYear):
